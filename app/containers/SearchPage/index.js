@@ -11,6 +11,7 @@ import {selectLoading, selectError, selectBusinessExpertise, selectExpertiseId} 
 import {createStructuredSelector} from 'reselect';
 import {FormattedMessage} from 'react-intl';
 import messages from './messages';
+import BaseLayout from 'components/BaseLayout';
 import SearchBar from 'components/SearchBar';
 import SearchResultList from 'components/SearchResultList';
 
@@ -19,19 +20,18 @@ export class SearchPage extends React.Component { // eslint-disable-line react/p
 
   render() {
     return (
-      <article>
-        <Helmet
-          title="SearchPage"
-          meta={[
-            {name: 'description', content: 'Description of SearchPage'},
-          ]}
-        />
-        <FormattedMessage {...messages.header} />
+      <BaseLayout>
+          <Helmet
+            title="SearchPage"
+            meta={[
+              {name: 'description', content: 'Description of SearchPage'},
+            ]}
+          />
+          <FormattedMessage {...messages.header} />
 
-        <SearchBar {...this.props}/>
-        <SearchResultList {...this.props}/>
-
-      </article>
+          <SearchBar {...this.props}/>
+          <SearchResultList {...this.props}/>
+      </BaseLayout>
     );
   }
 }

@@ -11,30 +11,30 @@
 
 import React from 'react';
 import Helmet from 'react-helmet';
-
 import {FormattedMessage} from 'react-intl';
 import messages from './messages';
-import TopBar from 'components/TopBar'
-import SearchBar from 'components/SearchBar'
-import { Link } from 'react-router';
+import BaseLayout from 'components/BaseLayout';
+import SearchBar from 'components/SearchBar';
+import {Link} from 'react-router';
 
 export default class HomePage extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function
   render() {
     return (
-      <article>
-        <Helmet
-          title="Bindee Home Page"
-          meta={[
-            { name: 'description', content: 'Bindee!!' },
-          ]}
-        />
-        <TopBar />
-        <h1>
-          <FormattedMessage {...messages.header} />
-        </h1>
-        <SearchBar />
-        <Link to="/search"> go to search</Link>
-      </article>
+      <BaseLayout>
+        <article>
+          <Helmet
+            title="Bindee Home Page"
+            meta={[
+              {name: 'description', content: 'Bindee!!'},
+            ]}
+          />
+          <h1>
+            <FormattedMessage {...messages.header} />
+          </h1>
+          <SearchBar />
+          <Link to="/search"> go to search</Link>
+        </article>
+      </BaseLayout>
     );
   }
 }

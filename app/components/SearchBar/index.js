@@ -5,11 +5,9 @@
  */
 
 import React from 'react';
-import {FormattedMessage} from 'react-intl';
-import messages from './messages';
 import Autocomplete from 'react-toolbox/lib/autocomplete';
-import {searchBusinessExpertise} from 'containers/SearchPage/actions'
-import {loadBusinessExpertise} from 'containers/SearchPage/actions'
+import {searchBusinessExpertise, loadBusinessExpertise} from 'containers/SearchPage/actions';
+import {Row, Column} from 'hedron';
 
 class SearchBar extends React.Component { // eslint-disable-line react/prefer-stateless-function
 
@@ -26,10 +24,11 @@ class SearchBar extends React.Component { // eslint-disable-line react/prefer-st
 
   render() {
     return (
-      <div>
-        <Autocomplete label={'Search what you want'} onChange={this.handleChange}/>
-        <FormattedMessage {...messages.header} />
-      </div>
+      <Row>
+        <Column xs={8} xsShift={2} lg={6} lgShift={3}>
+          <Autocomplete label={'Search what you want'} onChange={this.handleChange}/>
+        </Column>
+      </Row>
     );
   }
 }
