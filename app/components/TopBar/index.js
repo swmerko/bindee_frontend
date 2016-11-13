@@ -12,8 +12,10 @@ import theme from 'react-toolbox/components/app_bar/theme.scss';
 
 class TopBar extends React.Component { // eslint-disable-line react/prefer-stateless-function
   render() {
-    return (
-      <AppBar theme={theme} title={<FormattedMessage {...messages.header} />}/>
+    return (<div>
+      <AppBar theme={theme} title={'Bindee'}/>
+        <FormattedMessage {...messages.header} />
+      </div>
     );
   }
 }

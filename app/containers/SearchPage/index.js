@@ -14,6 +14,9 @@ import SearchBar from 'components/SearchBar';
 import SearchResultList from 'components/SearchResultList';
 
 export class SearchPage extends React.Component { // eslint-disable-line react/prefer-stateless-function
+
+
+
   render() {
     return (
       <article>
@@ -25,8 +28,8 @@ export class SearchPage extends React.Component { // eslint-disable-line react/p
         />
         <FormattedMessage {...messages.header} />
 
-        <SearchBar/>
-        <SearchResultList/>
+        <SearchBar {...this.props}/>
+        <SearchResultList {...this.props}/>
 
 
       </article>

@@ -9,4 +9,7 @@
  * export const YOUR_ACTION_CONSTANT = 'yourproject/YourContainer/YOUR_ACTION_CONSTANT';
  */
 
+export const LOAD_BUSINESS_EXPERTISE = 'bindeeFrontend/App/LOAD_BUSINESS_EXPERTISE';
+export const LOAD_BUSINESS_EXPERTISE_SUCCESS = 'bindeeFrontend/App/LOAD_BUSINESS_EXPERTISE_SUCCESS';
+export const LOAD_BUSINESS_EXPERTISE_ERROR = 'bindeeFrontend/App/LOAD_BUSINESS_EXPERTISE_ERROR';
 export const DEFAULT_LOCALE = 'en';
