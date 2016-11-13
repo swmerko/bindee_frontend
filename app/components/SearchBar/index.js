@@ -9,6 +9,7 @@ import {FormattedMessage} from 'react-intl';
 import messages from './messages';
 import Autocomplete from 'react-toolbox/lib/autocomplete';
 import {searchBusinessExpertise} from 'containers/SearchPage/actions'
+import {loadBusinessExpertise} from 'containers/App/actions'
 
 class SearchBar extends React.Component { // eslint-disable-line react/prefer-stateless-function
 
@@ -17,7 +18,12 @@ class SearchBar extends React.Component { // eslint-disable-line react/prefer-st
 
     console.log(value);
     console.log(this.props.dispatch);
-    // this.props.dispatch(searchBusinessExpertise(value))
+    let action = searchBusinessExpertise(value);
+    console.log(action);
+    this.props.dispatch(action);
+
+    action = loadBusinessExpertise();
+    this.props.dispatch(action);
 
 
   };
