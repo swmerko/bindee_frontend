@@ -1,8 +1,8 @@
 import {call, put, fork, select, take, cancel} from 'redux-saga/effects';
 import {takeLatest} from 'redux-saga';
 import {selectExpertiseId} from 'containers/SearchPage/selectors';
-import {businessExpertiseLoaded, businessExpertiseLoadingError} from 'containers/App/actions';
-import {LOAD_BUSINESS_EXPERTISE} from 'containers/App/constants';
+import {businessExpertiseLoaded, businessExpertiseLoadingError} from 'containers/SearchPage/actions';
+import {LOAD_BUSINESS_EXPERTISE} from 'containers/SearchPage/constants';
 import {LOCATION_CHANGE} from 'react-router-redux';
 import request from 'utils/request';
 

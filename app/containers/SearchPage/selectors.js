@@ -14,8 +14,27 @@ const selectExpertiseId = () => createSelector(
   (searchPageState) => searchPageState.get('expertiseId')
 );
 
-export default selectSearchPage;
+
+const selectLoading = () => createSelector(
+  selectSearchPage(),
+  (globalState) => globalState.get('loading')
+);
+
+const selectError = () => createSelector(
+  selectSearchPage(),
+  (globalState) => globalState.get('error')
+);
+
+const selectBusinessExpertise = () => createSelector(
+  selectSearchPage(),
+  (globalState) => globalState.get('businessExpertise')
+);
+
+
 export {
+  selectLoading,
+  selectError,
+  selectBusinessExpertise,
   selectSearchPage,
   selectExpertiseId,
 };

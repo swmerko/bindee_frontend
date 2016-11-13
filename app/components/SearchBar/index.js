@@ -9,7 +9,7 @@ import {FormattedMessage} from 'react-intl';
 import messages from './messages';
 import Autocomplete from 'react-toolbox/lib/autocomplete';
 import {searchBusinessExpertise} from 'containers/SearchPage/actions'
-import {loadBusinessExpertise} from 'containers/App/actions'
+import {loadBusinessExpertise} from 'containers/SearchPage/actions'
 
 class SearchBar extends React.Component { // eslint-disable-line react/prefer-stateless-function
 
