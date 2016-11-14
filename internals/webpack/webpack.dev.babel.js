@@ -37,7 +37,7 @@ module.exports = require('./webpack.base.babel')({
   scssLoaders: [
     'style-loader',
     'css-loader?modules&sourceMap&importLoaders=2&localIdentName=[name]__[local]___[hash:base64:5]',
-    'sass-loader'
+    'sass-loader',
   ],
 
   // Add development plugins
@@ -50,10 +50,6 @@ module.exports = require('./webpack.base.babel')({
 
   // Emit a source map for easier debugging
   devtool: 'cheap-module-eval-source-map',
-
-  sassLoader: {
-    data: '@import "' + path.resolve(__dirname, 'theme/_theme.scss') + '";'
-  }
 });
 
 /**
