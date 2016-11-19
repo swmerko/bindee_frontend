@@ -6,6 +6,7 @@
 
 import React from 'react';
 import GoogleMap from 'google-map-react';
+import {fitBounds} from 'google-map-react/utils';
 
 const greatPlaceStyle = {
   // initially any map object has left top corner at lat lng coordinates
@@ -42,9 +43,61 @@ class SearchMap extends React.Component { // eslint-disable-line react/prefer-st
       right: 0,
       top: '64px',
       bottom: 0
-    }
-    ;
+    };
   }
+
+  calculateBounds(markers) {
+
+    var minLatitude = 99999999;
+    var maxLatitude = 0;
+    var minLongitude = 99999999;
+    var maxLongitude = 0;
+
+    for (var marker of markers) {
+      if (marker.businessProfileLatitude < minLatitude) {
+        minLatitude = marker.businessProfileLatitude;
+      }
+      if (marker.businessProfileLatitude > maxLatitude) {
+        maxLatitude = marker.businessProfileLatitude;
+      }
+      if (marker.businessProfileLongitude < minLongitude) {
+        minLongitude = marker.businessProfileLongitude;
+      }
+      if (marker.businessProfileLongitude > maxLongitude) {
+        maxLongitude = marker.businessProfileLongitude;
+      }
+    }
+
+    const bounds = {
+      nw: {
+        lat: maxLatitude,
+        lng: minLongitude
+      },
+      se: {
+        lat: minLatitude,
+        lng: maxLongitude
+      }
+    };
+    return bounds;
+  }
+
+  // calculateCenter(bounds) {
+  //
+  //   var minLatitude = bounds.se.lat;
+  //   var maxLatitude = bounds.nw.lat;
+  //   var minLongitude = bounds.nw.lng;
+  //   var maxLongitude = bounds.se.lng;
+  //
+  //   const centerLatitude = parseFloat(minLatitude) + parseFloat(((maxLatitude - minLatitude) / 2));
+  //   const centerLongitude = parseFloat(minLongitude) + parseFloat(((maxLongitude - minLongitude) / 2));
+  //
+  //   const result = {
+  //     lat: centerLatitude,
+  //     lng: centerLongitude
+  //   };
+  //
+  //   return result
+  // }
 
 
   render() {
@@ -63,16 +116,28 @@ class SearchMap extends React.Component { // eslint-disable-line react/prefer-st
         text: marker.businessProfileName
       };
     });
+
+    const size = {
+      width: 380, // Map width in pixels
+      height: 640, // Map height in pixels
+    };
+
+    let bounds = null;
+    let center = defaultMaps.center;
+    let zoom = defaultMaps.zoom;
+
     if (markers.length > 0) {
-      defaultMaps.center.lat = markers[0].lat;
-      defaultMaps.center.lng = markers[0].lng;
+      bounds = this.calculateBounds(this.props.markers);
+      let fitter = fitBounds(bounds, size);
+      center = fitter.center;
+      zoom = fitter.zoom;
     }
 
     return (
       <div style={this.state}>
         {markers ? <GoogleMap bootstrapURLKeys={{key: 'AIzaSyCBGWSEGLEvgRAw_FR8OGZq4Rm69UJU7hU', language: 'it'}}
-                              defaultCenter={defaultMaps.center}
-                              defaultZoom={defaultMaps.zoom}>
+                              center={center}
+                              zoom={zoom}>
           {markers ? markers.map((marker) => {
             return <MyGreatPlace key={marker.id}
                                  lat={marker.lat}

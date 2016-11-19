@@ -14,7 +14,7 @@ class SearchResultList extends React.Component { // eslint-disable-line react/pr
   render() {
     const {businessExpertise} = this.props;
     return (
-      <Row fluid>
+      <Row>
         {businessExpertise.map((expertise) => {
           return <BusinessExpertiseResult key={expertise.id}  {...expertise} />;
         })}
