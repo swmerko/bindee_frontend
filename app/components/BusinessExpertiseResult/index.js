@@ -41,7 +41,7 @@ class BusinessExpertiseResult extends React.Component { // eslint-disable-line r
     // const chipsWrapperStyle = {display: 'flex', flexWrap: 'wrap'};
 
     return (
-      <Column xs={6} lg={3}>
+      <Column xs={12} lg={6}>
         <Card>
           <CardTitle
             avatar="http://hack-frontend.skillask.com/static/home/media/images/factoryIcon.png"
@@ -53,7 +53,7 @@ class BusinessExpertiseResult extends React.Component { // eslint-disable-line r
           />
           <CardText>
             <h4>{expertiseName}</h4>
-            <div>
+            <div style={{height: 32, overflow: 'auto'}}>
               {expertise.slice(0, 3).map(this.renderChip)}
             </div>
           </CardText>

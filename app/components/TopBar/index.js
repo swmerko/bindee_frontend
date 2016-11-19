@@ -13,7 +13,7 @@ import {AppBar} from 'react-toolbox/lib/app_bar';
 class TopBar extends React.Component { // eslint-disable-line react/prefer-stateless-function
   render() {
     return (<div>
-      <AppBar title={'Bindee'}/>
+      <AppBar fixed title={'Bindee'}/>
         <FormattedMessage {...messages.header} />
       </div>
     );

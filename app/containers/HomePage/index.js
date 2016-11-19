@@ -12,6 +12,7 @@
 import React from 'react';
 import Helmet from 'react-helmet';
 import {FormattedMessage} from 'react-intl';
+import {Row, Column} from 'hedron';
 import messages from './messages';
 import BaseLayout from 'components/BaseLayout';
 import SearchBar from 'components/SearchBar';
@@ -31,7 +32,12 @@ export default class HomePage extends React.PureComponent { // eslint-disable-li
           <h1>
             <FormattedMessage {...messages.header} />
           </h1>
-          <SearchBar />
+
+          {/*<Row>*/}
+            {/*<Column xs={8} xsShift={2} lg={6} lgShift={3}>*/}
+              {/*<SearchBar />*/}
+            {/*</Column>*/}
+          {/*</Row>*/}
           <Link to="/search"> go to search</Link>
         </article>
       </BaseLayout>

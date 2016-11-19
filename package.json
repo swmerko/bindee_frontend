@@ -191,6 +191,7 @@
     "eslint-plugin-import": "^2.0.1",
     "express": "4.14.0",
     "fontfaceobserver": "2.0.5",
+    "google-map-react": "^0.21.3",
     "hedron": "^0.2.0",
     "history": "^1.17.0",
     "immutability-helper": "^2.0.0",
