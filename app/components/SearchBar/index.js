@@ -13,6 +13,8 @@ class SearchBar extends React.Component { // eslint-disable-line react/prefer-st
 
   handleChange = (value) => {
 
+    value = 5;
+
     let action = searchBusinessExpertise(value);
     this.props.dispatch(action);
     action = loadBusinessExpertise();

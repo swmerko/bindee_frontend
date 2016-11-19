@@ -10,8 +10,8 @@ import request from 'utils/request';
 export function* getBusinessExpertiseListByExpertiseId() {
   // Select username from store
   const expertiseId = yield select(selectExpertiseId());
-  // const requestURL = `http://hack-api.skillask.com/profiles/api/business-expertise/?expertiseId=${expertiseId}`;
-  const requestURL = 'https://jsonplaceholder.typicode.com/posts';
+  const requestURL = `http://hack-api.skillask.com/profiles/api/business-expertise/?expertiseId=${expertiseId}`;
+  // const requestURL = 'https://jsonplaceholder.typicode.com/posts';
 
   try {
     // Call our request helper (see 'utils/request')
